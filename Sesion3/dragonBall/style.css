@@ -1,0 +1,353 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+}
+
+header{
+    
+    background-color: lightblue;
+}
+
+h1{
+    padding: 10px;
+    text-align: center;
+    background-color: lightblue;
+}
+
+nav{
+    background-color: rgb(243, 137, 118);
+    padding: 10px;
+
+}
+
+ul{
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.link-cabecera{
+    color: black;
+    font-weight: normal;
+}
+
+.link-cabecera:hover{
+    color: white;
+    font-weight: bold;
+}
+
+main{
+    flex: 1;
+    padding: 20px;
+    background-color: lightyellow;
+}
+
+#main-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.personaje{
+    border: 2px solid black;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    background-color: rgb(170, 56, 56);
+}
+
+.personaje:hover{
+    background-color: color-mix(in srgb, currentColor 15%, rgb(139, 137, 137)) !important;
+}
+
+.img-personaje{
+    height: inherit;
+}
+
+#main-content2{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.personaje-detalle{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow:  3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.img-personaje-detalle{
+    height: 50vh;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para las celdas del encabezado */
+th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #34495e;
+}
+
+/* Estilos para las celdas del cuerpo */
+td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Estilos para las filas del cuerpo */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e8f4f8;
+}
+
+/* Estilos para los enlaces de nombre */
+.link-personaje {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link-personaje:hover {
+    color: #e74c3c;
+    text-decoration: underline;
+}
+
+footer{
+    background-color: lightblue;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Media Queries para responsive design */
+
+/* Tablets (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    #main-content {
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .personaje {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 30px;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 8px;
+    }
+    
+    .personaje-detalle {
+        padding: 20px;
+        margin: 15px;
+    }
+    
+    .img-personaje-detalle {
+        height: 40vh;
+    }
+}
+
+/* Móviles grandes (576px - 768px) */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em;
+        padding: 8px;
+    }
+    
+    nav {
+        padding: 8px;
+    }
+    
+    ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    #main-content {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .personaje {
+        width: 90%;
+        height: auto;
+        min-height: 200px;
+        margin-bottom: 15px;
+    }
+    
+    .img-personaje {
+        height: 150px;
+    }
+    
+    table {
+        font-size: 12px;
+        display: block;
+        overflow-x: auto;
+    }
+    
+    th, td {
+        padding: 6px;
+    }
+    
+    .link-personaje {
+        font-size: 11px;
+    }
+    
+    .personaje-detalle {
+        padding: 15px;
+        margin: 10px;
+        width: 90%;
+    }
+    
+    .img-personaje-detalle {
+        height: 30vh;
+    }
+    
+    main {
+        padding: 15px;
+    }
+}
+
+/* Móviles pequeños (hasta 576px) */
+@media screen and (max-width: 576px) {
+    header h1 {
+        font-size: 1.3em;
+        padding: 5px;
+    }
+    
+    nav {
+        padding: 5px;
+    }
+    
+    ul {
+        gap: 8px;
+    }
+    
+    #main-content {
+        padding: 5px;
+        gap: 5px;
+    }
+    
+    .personaje {
+        width: 95%;
+        min-height: 180px;
+        margin-bottom: 10px;
+        padding: 8px;
+    }
+    
+    .img-personaje {
+        height: 120px;
+    }
+    
+    table {
+        font-size: 10px;
+    }
+    
+    th, td {
+        padding: 4px;
+        white-space: nowrap;
+    }
+    
+    .link-personaje {
+        font-size: 10px;
+    }
+    
+    .personaje-detalle {
+        padding: 10px;
+        margin: 5px;
+        width: 95%;
+        gap: 10px;
+    }
+    
+    .img-personaje-detalle {
+        height: 25vh;
+    }
+    
+    footer p {
+        font-size: 0.9em;
+        padding: 5px;
+    }
+    
+    main {
+        padding: 10px;
+    }
+}
+
+/* Pantallas muy pequeñas (hasta 360px) */
+@media screen and (max-width: 360px) {
+    header h1 {
+        font-size: 1.1em;
+    }
+    
+    .personaje {
+        width: 100%;
+        min-height: 150px;
+    }
+    
+    .img-personaje {
+        height: 100px;
+    }
+    
+    .personaje-detalle h2 {
+        font-size: 1.2em;
+        text-align: center;
+    }
+    
+    .personaje-detalle p {
+        font-size: 0.9em;
+        text-align: center;
+    }
+    
+    .img-personaje-detalle {
+        height: 20vh;
+    }
+}

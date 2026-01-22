@@ -1,0 +1,23 @@
+<script>
+    // vamos a hacer un objeto que tenga una funcion que me pinta cada 5 segundos por consola
+    //el nombre del pais
+
+    let paises = {
+        nombre:"pais",
+        intervalo:5000,
+        pinta: function(){
+            let contador = 0;
+            const id = setInterval(() => {
+                console.log(this.nombre);
+                console.log(contador);
+                contador++;
+                if(contador === 5){
+                    clearInterval(id);
+                }
+            },this.intervalo);
+            return true;
+        }
+    }
+    paises.pinta();
+    
+</script>

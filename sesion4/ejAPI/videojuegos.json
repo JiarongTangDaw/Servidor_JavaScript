@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "titulo": "The Legend of Zelda: Breath of the Wild",
+    "anyo": 2017,
+    "consola": "Nintendo Switch"
+  },
+  {
+    "id": 2,
+    "titulo": "God of War",
+    "anyo": 2018,
+    "consola": "PlayStation 4"
+  },
+  {
+    "id": 3,
+    "titulo": "Halo: Combat Evolved",
+    "anyo": 2001,
+    "consola": "Xbox"
+  },
+  {
+    "id": 4,
+    "titulo": "Super Mario Bros.",
+    "anyo": 1985,
+    "consola": "NES"
+  },
+  {
+    "id": 5,
+    "titulo": "The Witcher 3: Wild Hunt",
+    "anyo": 2015,
+    "consola": "PlayStation 4"
+  }
+]

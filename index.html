@@ -1,0 +1,413 @@
+<script>
+
+    const personas = [
+        {
+            nombre: "Ana",
+            edad: 28,
+            ciudad: "Madrid"
+        },
+        {
+            nombre: "Luis",
+            edad: 34,
+            ciudad: "Buenos Aires"
+        },
+        {
+            nombre: "Sofia",
+            edad: 22,
+            ciudad: "Ciudad de Mexico"
+        }
+    ]
+
+    function ejemplo() {
+        for (const persona of personas){
+            console.log(`${persona.nombre} tiene ${persona.edad} años y vive en ${persona.ciudad}`);
+            
+        }
+    }
+    ejemplo();
+
+    // function ejemploAvisos() {
+    //     //mesaje
+    //     alert('vamos chic@s que es viernes');
+        
+    //     let salida = prompt('Seguramente sea toro juego, ¿cual?');
+    //     alert(salida);
+
+    //     let bsalida = confirm('Lo que vas a hacer es ciudad de tus hijos');
+
+    //     if(bSalida == false){
+    //         bsalida = confirm('Lo que vas a hacer es cuidadr de tus hijos');
+    //     }
+    // }
+    // ejemploAvisos();
+
+    //simulamos cargar los datos del JSON
+    function pintar(color ="negro"){
+        console.log(`Pintando color ${color}`);
+    }
+
+    pintar(); // pinta color por defecto negro
+    pintar("azul"); // pinta azul
+
+    //pasar funcion como parametro
+    function sumar(a,b) {
+        return a + b;
+    }
+
+    function restar(a, b) {
+        return a - b;
+    }
+
+    function operar(operacion,a,b) {
+        return operacion(a,b);
+    }
+
+    let v1 = operar(sumar,4,5);
+    console.log("v1:", v1);
+
+    let v2 = operar(restar,5,4);
+    console.log("v2:",v2);
+    
+    //ejemplo 2
+    function confirmar(pregunta,aceptar,cancelar) {
+        // el confirm identifica si es true o false
+        if(confirm(pregunta)){
+            aceptar();
+        }else{
+            cancelar();
+        }
+    }
+
+    confirmar("¿Sabes que es un callback?",
+        function () {
+            console.log("Has respondido que si");
+        },
+        function () {
+            console.log("Has respondido que no");            
+        }
+    );
+
+    // ejemplo 3
+    let fuera = this;
+    console.log("fuera:", fuera);
+
+    let sumar1 = (a,b) => {
+        let dentro = this;
+        console.log("dentro:", dentro);
+        return a + b;
+    };
+
+    function sumar2(a,b) {
+        return a + b;
+    }
+    sumar1();
+
+    // funciones 2025/10/16
+    function sumar3(a, b) {
+        return a + b; 
+    } 
+    let numeros1 = [4, 7]; 
+    sumar3(...numeros1); // 11
+    console.log("suma: " + sumar3(...numeros1));
+
+    let colores1 = ["azul", "rojo", "verde"]; 
+    let colores2 = colores1; // NO ES UNA COPIA 
+    let colores3 = [...colores1]; // COPIA NUEVA 
+    let colores4 = ["cian", ...colores1, "rosa"]; 
+    colores2[0] = "amarillo"; 
+    console.log(colores1[0]); // amarillo 
+    console.log(colores2[0]); //  amarillo 
+    console.log(colores3[0]); // azul 
+    console.log(colores4.length); // 5
+    console.log(colores4); // [ 'cian', 'azul', 'rojo', 'verde', 'rosa' ]
+
+    //clousure
+    function crearContador() { 
+        let cuenta = 0; 
+        return function() { 
+            return cuenta++; 
+        } 
+    } 
+    let contador1 = crearContador(); // el valor aqui es la funcion interna de crearContador
+    console.log(contador1()); // 0 
+    console.log(contador1()); // 1 
+    console.log(contador1()); // 2 
+    // se realiza la funcion de cuenta++ porque la variable ya esta creada dentro del ambito
+    // cuando llamamos contador1() como funcion, lo que ejecuta es la funcion interna de ++
+    let contador2 = crearContador(); 
+    console.log(contador2()); //0 
+    console.log(contador2()); // 1
+    
+
+    // objetos
+    let coche = { 
+        color: "rojo", 
+        marca: "seat", 
+        arrancar: function() { 
+            console.log("Arrancando"); 
+            console.log(coche.color); // rojo
+            console.log(coche.marca); // seat 
+        }
+    }; 
+    coche.arrancar(); // Arrancando
+    coche.modelo = "ibiza"; 
+    coche["combustible"] = "diesel"; 
+    for (let prop in coche){ 
+        console.log(prop);
+        console.log(`valor de ${prop}:${coche[prop]}`); 
+    }
+
+    // ejemplo 1
+    const numeros = [10,20,30,40,50];
+    const[a,b] = numeros;//[10,20]
+
+    console.log("a: ", a);//10
+    console.log("b: ",b);//20
+
+    const numeros2 = [10,20,30,40,50];
+
+    const[x,y,...resto]=numeros2;//[10,20,[30,40,50]]
+    console.log("x: ",x);//10
+    console.log("y: ",y);// 20
+    console.log("resto: ",resto);// array con el resto de elementos
+       
+    // ejemplo 2
+    const numeros3 = {a:1,b:2};
+    const numeros4 ={b:3,c:4};
+
+    Object.assign(numeros3,numeros4);// añade a numeros3 las propiedades de numeros4
+    // si coincide alguna propiedad se actualiza al de numeros4
+
+    console.log("numeros3: ", numeros3);
+    console.log("numeros4: ",numeros4);
+    
+    let numFin = Object.assign({},numeros3,numeros4);
+    console.log("numFin: ",numFin);
+
+    // predefinidos y metodos primitivos
+    let cadena = "Texto"; 
+    console.log(cadena.length);// 5 
+    Number(2.54).toExponential(); // '2.54e+0' 
+    "texto".toUpperCase(); //"TEXTO" 
+    Number(25).toString(); // "25" 
+    let cadena2 = "Esto es un texto" ; 
+    cadena2.indexOf("x"); // 13 
+    cadena2.includes("texto"); // true 
+    cadena2.startsWith("Es"); // true 
+    cadena2.endsWith("Es"); // false
+
+    let num = parseInt("20");
+    let num2 = parseFloat("20.23");
+
+    //this
+    this.nombre = "hola"; // propiedad nombre global de objeto this
+    let usuario = { 
+        nombre: "David", 
+        saluda: function() { 
+            return this.nombre; 
+        }
+
+        // saluda: () => { 
+        //     return this.nombre; 
+        // } // esto no funciona porque el this en esta funcion es lo que hay entre parentesis
+    }; 
+    console.log(usuario.saluda()); // "David" 
+    let intentaSaludar = usuario.saluda; 
+    // console.log(intentaSaludar()); // undefined
+
+    let usuario2 = { 
+        nombre: "David",
+        saluda: () => { 
+            return this.nombre; 
+        }
+    };
+    
+    let intentaSaludar2 = usuario2.saluda; 
+    console.log(intentaSaludar2() + " variable global"); // el nombre que coge aqui es el global que se ha definido arriba
+
+    //callbacks
+    let usuario3 = { 
+        nombre: "David", 
+        saludaConRetardo : function() { 
+            // setTimeout(function() { 
+            //     console.log(this.nombre); // undefined 
+            // }, 1000); //es undifined porque no tiene ninguna propiedad nombre en la funcion original
+            setTimeout(() => { 
+                console.log(this.nombre + " setTimeout1");
+            }, 1000);
+        } 
+    }; 
+    usuario3.saludaConRetardo ();
+
+    let usuarioBind = { 
+        nombre: "David", 
+        saludaConRetardo : function() { 
+            setTimeout(function() { 
+                console.log(this.nombre + " setTimeout2"); // bind coge propiedad de contenedor anterior
+            }.bind(this), 1000); 
+        } 
+    };
+    usuarioBind.saludaConRetardo ();
+
+    //OBJETOS (class) 2025/10/17
+    function Usuario(nombre,apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.Hola = function(){
+            console.log("Hola como estas");
+            
+        }
+    }
+
+    let oUsuario = new Usuario('Jiarong','Tang');
+    oUsuario.Hola();
+
+    // prototipo
+    let oUsuarioJ = new Usuario("Javier","Piñero");
+
+    // con prototype el cambio afecta a todos objetos que sean de la clase Usuario
+    Usuario.prototype.saludar = function () { 
+        console.log("Hola " + this.nombre);        
+    }
+
+    // definir una funcion solo para un objeto solo afecta a dicho objeto
+    // el resto de objetos del mismo tipo no comparten esta funcion
+    oUsuario.saludarApellido = function(){
+        console.log("HOla " + this.apellido);        
+    }
+    oUsuario.saludar(); // Hola Jiarong
+    oUsuarioJ.saludar(); // Hola Javi
+    oUsuario.saludarApellido(); // hOLA tANG
+    // oUsuarioJ.saludarApellido(); // ERROR
+
+    //+++ otra forma de crear un nuevo objeto
+    let persona = {
+        saludar : function(){
+            console.log("hola");
+        },
+        saludar2 : function () {
+            console.log("HOLO");            
+        }
+    }
+
+    let user = Object.create(persona);
+    user.saludar();
+    user.saludar2();
+
+    //CLASES
+    class Usuario2 {
+        constructor(nombre,apellidos) {
+            this.nombre = nombre;
+            this.apellidos = apellidos;
+        }
+        saludar() {
+            console.log(`Me llamo ${this.nombre} ${this.apellidos}`);
+        }
+    }
+    let user1 = new Usuario2("Rosa","Moreno");
+    user1.saludar();
+
+    //HERENCIA
+    class Empleado extends Usuario {
+        constructor(nombre, apellidos, puesto) {
+            super(nombre, apellidos); // llama al constructor de la clase padre
+            this.puesto = puesto;
+        }
+        saludar() {// sobre escribe la funcion original de la clase padre
+            console.log(`Me llamo ${this.nombre} ${this.apellidos} y soy ${this.puesto}`);
+        }
+    }
+
+    let empleado = new Empleado("David", "Pérez", "Desarrollador");
+    empleado.saludar(); // "Me llamo David Pérez y soy Desarrollador"
+
+    //() JSON
+    let user2 = { 
+        nombre: "David", 
+        edad: 25, 
+        permisos: ["administrador", "editor"] 
+    };
+    // convierte objeto a cadena JSON (string con forma dato JSON)
+    let cadenaJson = JSON.stringify(user2); // String
+    // convierte cadena JSON (string) de vuelta a objeto
+    let usuarioRecuperado = JSON.parse(cadenaJson); // Objeto
+
+    //FILTROS 
+    let datos = [14, 22, 16, 3, 35];
+    // Obtener los elementos menores que 15
+    // --- el filter solo devuelve un arrays
+    let resultado = datos.filter(function(dato) {
+        return dato < 15;
+    });
+    console.log("Resultado de filtro: ",resultado); // [14, 3]
+
+    //funcion flecha
+    let menorQue15 = dato => dato < 15;
+    resultado = datos.filter(menorQue15);
+    console.log("Resultado de filtro2: ",resultado); // [14, 3]
+
+    //FIND
+    // devuelve un solo elemento, y es el primer elemento que hace la condicion
+    let usuarios = [
+        {nombre: "David", apellido: "Pérez", nif: 1},
+        {nombre: "Juan", apellido: "Martínez", nif: 2},
+        {nombre: "José", apellido: "Fernández", nif: 3}
+    ];
+    let usuarioConNif2 = usuarios.find(item => item.nif == 2);
+    console.log("Resultado de find con nif 2: ",usuarioConNif2); // {nombre: "Juan", apellido: "Martínez", nif: 2}
+
+    //MAP
+    // transformacion de array
+    let numeros5 = [1, 3, 5, 7];
+    let dobleNumeros = numeros5.map(function(numero) {
+        return numero * 2;
+    });
+    console.log(numeros5); // [1, 3, 5, 7]
+    console.log("Resultado de map con *2: ",dobleNumeros); // [2, 6, 10, 14]
+
+    //REDUCE
+    //agrupa los elementos del array a un unico valor
+    let numeros6 = [2, 5, 4];
+    let total = numeros6.reduce(function(acc, numero) {
+        return acc + numero;
+    }, 0);
+    console.log("Resultado de reduce: ",total); // 11
+
+    //otro ejemplo 
+    let coches = [
+        {color: "rojo", modelo: "A"},
+        {color: "verde", modelo: "B"},
+        {color: "azul", modelo: "C"},
+        {color: "rojo", modelo: "D"}
+    ];
+    let agrupado = coches.reduce(function(acc, coche) {
+        let color = coche.color;
+        if (!acc[color]) {
+            acc[color] = { cuenta: 0, listado: [] };
+        }
+        acc[color].cuenta++;
+        acc[color].listado.push(coche);
+        return acc;
+    }, {});
+    console.log(agrupado);
+
+    //TRY CATCH
+    try {
+    // Acceso a una propiedad de una variable que no existe
+        let a = 1;
+        debugger; // quitarlo para produccion
+        console.log(hola.noexiste);
+    } catch (error) {
+        // El parámetro puede tener cualquier nombre, no tiene por qué ser 'error'
+        console.log(error.name); // ReferenceError
+        console.log(error.message); // hola is not defined
+    }
+
+</script>
+<script type="module"> // el import y export solo funciona dentro de modulos
+    //() EXPORTACION E IMPORTACION
+    // Fichero principal.js
+    import { saludar, despedir } from './miLibreria.js';
+    saludar("Juan"); // Hola, Juan
+    despedir("Juan"); // "Ssssshh... es un secreto... Adiós, Juan"
+</script>

@@ -1,0 +1,377 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Asegurar que body ocupe toda la ventana */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header y footer con altura fija */
+header {
+    background-color: lightblue;
+    height: 60px; /* Altura fija */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    padding: 10px;
+    text-align: center;
+    background-color: lightblue;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: lightyellow;
+    display: grid;
+    grid-template-areas: 
+        "griffindor . slytherin"
+        ". homeless ."
+        "hufflepuff . ravenclaw";
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    height: calc(100vh - 140px); /* Altura total menos header y footer */
+    overflow: hidden; /* Evita scroll interno */
+    justify-content: center;
+}
+
+#Gryffindor {
+    grid-area: griffindor;
+}
+
+#Slytherin {
+    grid-area: slytherin;
+}
+
+#Homeless {
+    grid-area: homeless;
+    justify-self: center;
+    align-self: center;
+}
+
+#Hufflepuff {
+    grid-area: hufflepuff;
+}
+
+#Ravenclaw {
+    grid-area: ravenclaw;
+}
+
+/* Estilos para las casas - ajustados para pantalla completa */
+.house {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    min-width: 1fr;
+}
+
+.house::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    transition: filter 0.3s ease;
+    z-index: 1;
+}
+
+.house:hover::before {
+    filter: brightness(85%);
+}
+
+.house img {
+    position: relative;
+    z-index: 2;
+}
+
+/* Imágenes ajustadas para el espacio disponible */
+.house img {
+    height: 95%;
+}
+
+#Homeless {
+    background-color: #ced4da;
+}
+
+#Homeless img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+/* Colores específicos para cada casa */
+#Gryffindor {
+    background-color: #ff6b6b;
+}
+
+#Slytherin {
+    background-color: #51cf66;
+}
+
+#Hufflepuff {
+    background-color: #ffd43b;
+}
+
+#Ravenclaw {
+    background-color: #339af0;
+}
+
+
+/* Estilos para la página de personajes */
+#main-content2 {
+    padding: 20px;
+    background-color: lightyellow;
+    min-height: calc(100vh - 140px);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#main-content2 h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    flex-shrink: 0; /* Evita que se reduzca */
+}
+
+#contPersonajes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+    flex: 1; /* Ocupa el espacio restante */
+}
+
+.personaje {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 3px solid transparent;
+    border-color: #bdc3c7;
+    background-color: #f8f9fa;
+}
+
+.personaje:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.personaje img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ecf0f1;
+    margin-bottom: 15px;
+}
+
+.personaje h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.personaje p {
+    margin: 8px 0;
+    color: #34495e;
+    line-height: 1.5;
+}
+
+.personaje p b {
+    color: #e74c3c;
+}
+
+/* Colores específicos por casa */
+#main-content2 h2[data-casa="Gryffindor"] { color: #ae0001; }
+#main-content2 h2[data-casa="Slytherin"] { color: #2a623d; }
+#main-content2 h2[data-casa="Hufflepuff"] { color: #ecb939; }
+#main-content2 h2[data-casa="Ravenclaw"] { color: #222f5b; }
+
+.personaje[data-casa="Gryffindor"] { border-color: #ae0001; background-color:#fff5f5;}
+.personaje[data-casa="Slytherin"] { border-color: #2a623d; background-color:#f5fff5;}
+.personaje[data-casa="Hufflepuff"] { border-color: #ecb939; background-color:#fff9e6;}
+.personaje[data-casa="Ravenclaw"] { border-color: #222f5b; background-color:#f5f7ff;}
+
+#main-content3 {
+    padding: 20px;
+    background-color: lightyellow;
+    min-height: calc(100vh - 140px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-volver {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.boton-volver:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.personaje-detalle {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 600px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 100%;
+    border-left: 5px solid #ced4da;
+    margin-bottom: 20px;
+}
+
+/* Colores de fondo según la casa */
+.personaje-detalle[data-casa="Gryffindor"] {
+    background-color: #fff5f5;
+    border-left: 5px solid #ae0001;
+}
+
+.personaje-detalle[data-casa="Slytherin"] {
+    background-color: #f5fff5;
+    border-left: 5px solid #2a623d;
+}
+
+.personaje-detalle[data-casa="Hufflepuff"] {
+    background-color: #fff9e6;
+    border-left: 5px solid #ecb939;
+}
+
+.personaje-detalle[data-casa="Ravenclaw"] {
+    background-color: #f5f7ff;
+    border-left: 5px solid #222f5b;
+}
+
+.img-personaje-detalle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ecf0f1;
+    margin-bottom: 20px;
+}
+
+.personaje-detalle h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.personaje-detalle p {
+    margin: 12px 0;
+    color: #34495e;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.personaje-detalle p b {
+    color: #e74c3c;
+}
+
+footer {
+    background-color: lightblue;
+    text-align: center;
+    padding: 10px;
+    height: 50px; /* Altura fija */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #main-content2 {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    #contPersonajes {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 0;
+    }
+    
+    .personaje {
+        padding: 15px;
+    }
+    
+    .personaje img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    #main-content2 h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #contPersonajes {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 768px) {
+    main {
+        grid-template-areas: 
+            "griffindor"
+            "slytherin"
+            "homeless"
+            "hufflepuff"
+            "ravenclaw";
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        gap: 10px;
+        height: calc(100vh - 110px); /* Ajuste para móvil */
+    }
+    
+    .house img {
+        max-width: 100px;
+        max-height: 100x;
+    }
+    
+    #Homeless {
+        width: 150px;
+    }
+    
+    #Homeless img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+    
+}

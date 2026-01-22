@@ -1,0 +1,147 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Configuraciones del Body */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #121212; /* Fondo oscuro profundo */
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    
+    /* CENTRADO INICIAL: Cuando no hay selección */
+    align-items: center; 
+    transition: align-items 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* CAMBIO DE ESTADO: Cuando aparece el H2 (se selecciona una casa) */
+body:has(h2) {
+    align-items: flex-start;
+}
+
+/* Contenedor Principal */
+main {
+    width: 100%;
+    max-width: 1100px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Mantiene el select y título centrados horizontalmente */
+}
+
+/* Texto de instrucción */
+p {
+    color: #d4af37; /* Dorado Harry Potter */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Estilo del Selector (Select) */
+select {
+    padding: 12px 20px;
+    background-color: #1e1e1e;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    min-width: 200px;
+    text-align: center;
+}
+
+select:hover {
+    background-color: #d4af37;
+    color: #121212;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Título de la Casa (Aparece debajo del select) */
+h2 {
+    font-family: 'Georgia', serif;
+    font-size: 3rem;
+    color: #d4af37;
+    margin: 20px 0 40px 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    cursor: pointer;
+}
+
+/* Grid de Personajes */
+#listaPersonajes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    width: 100%;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.contenedor-personajes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Tarjeta de Personaje */
+.personaje {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 15px;
+    width: 200px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.personaje:hover {
+    transform: translateY(-10px);
+    border-color: #d4af37;
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+}
+
+/* Imágenes */
+.personaje img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 1px solid #333;
+}
+
+/* Nombre del Personaje */
+.nombre {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    background: linear-gradient(to bottom, #252525, #1e1e1e);
+    margin: 0;
+}
+
+/* Animación suave para la aparición de datos */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar estilizado (opcional) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 10px;
+}

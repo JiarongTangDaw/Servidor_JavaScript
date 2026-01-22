@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic</title>
+    <script type="module" src="./funciones.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="" id="formulario" name="formulario" method="post">
+        
+        <div id="principal">
+            <!-- cabecera para la tabla de lista de comics -->
+            <div id="cabecera">                
+                <p>Titulo</p>
+                <p>Autor</p>
+                <p>Estado</p>
+                <p>Ubicacion</p>
+                <p>Prestado</p>
+                <p>Botones</p>
+            </div>
+            <!-- Fila en donde se encontrara los campos a rellenar para un nuevo comic -->
+            <div id="nuevo">
+                <!-- Campo para el titulo -->
+                <input type="text" id="titulo0" value=""> 
+                <!-- campo para el autor -->
+                <input type="text" id="autor0" value="">
+                <!-- select para los estados -->
+                <select id="estado0">
+                    <option value=""></option>
+                    <option value="pendiente">Pendiente</option>
+                    <option value="leyendo">Leyendo</option>
+                    <option value="leido">Leido</option>
+                </select>
+                <!-- select para la ubicacion del comic -->
+                <select id="ubicacion0">
+                    <option value=""></option>
+                    <option value="estanteria1">Estanteria 1</option>
+                    <option value="estanteria2">Estanteria 2</option>
+                    <option value="mueble">Mueble</option>
+                </select>
+                <!-- select para prestado del comic -->
+                <select id="prestado0">
+                    <option value=""></option>
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                </select>
+                <!-- boton para añadir el comic nuevo -->
+                <div class="botones">
+                    <input type="button" id="btAdd" onclick="agregar();" value="NUEVO">
+                </div>
+            </div>
+            <!-- listado de los comics que tenemos -->
+            <div id="listado">
+                <!-- aqui se cargaran los comics -->
+            </div>
+        </div>
+    </form>
+</body>
+</html>

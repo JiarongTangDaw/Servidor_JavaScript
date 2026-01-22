@@ -1,0 +1,23 @@
+[
+    {
+        "marca": "Seat",
+        "modelo": "Cordoba",
+        "anyo": 2001,
+        "autonomia": 800,
+        "electrico": false
+    },
+    {
+        "marca": "Renault",
+        "modelo": "Arkana",
+        "anyo": 2024,
+        "autonomia": 1000,
+        "electrico": true
+    },
+    {
+        "marca": "BYD",
+        "modelo": "Dolphin",
+        "anyo": 2022,
+        "autonomia": 500,
+        "electrico": true
+    }
+]

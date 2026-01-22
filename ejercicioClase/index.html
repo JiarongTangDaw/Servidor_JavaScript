@@ -1,0 +1,45 @@
+<script type="module">
+    import { Coche } from "./Coche.js";
+    import { CocheElectrico } from "./CocheElectrico.js";
+    import datos from "./coches.json" with { type: "json" };
+
+    // let datos = [];
+    // async function cargarDatos(){
+    //     try {
+    //         const res = await fetch('coches.json')
+    //         datos = await res.json();
+            
+    //     } catch (error) {
+    //         console.error("Error", error)
+    //     }
+    // }
+    // // esperar a que se cargue los datos
+    // await cargarDatos();
+    
+    console.log(datos);
+
+    // datos.forEach(coche =>{
+    //     let info = "";
+    //     if(coche.electrico){
+    //         let elec = new CocheElectrico(coche.marca,coche.modelo,coche.anyo,coche.autonomia);
+    //         info = elec.mostrarInfo();
+    //     }else{
+    //        let car = new Coche(coche.marca,coche.modelo,coche.anyo);
+    //        info = car.mostrarInfo();
+    //     }
+    //     console.log(info);
+        
+    // })
+
+    for (let coche of datos){
+        let info = "";
+        if(coche.electrico){
+            let elec = new CocheElectrico(coche.marca,coche.modelo,coche.anyo,coche.autonomia);
+            info = elec.mostrarInfo();
+        }else{
+           let car = new Coche(coche.marca,coche.modelo,coche.anyo);
+           info = car.mostrarInfo();
+        }
+        console.log(info);
+    }
+</script>
