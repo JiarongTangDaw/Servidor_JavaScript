@@ -1,0 +1,10 @@
+<h1>Personajes de Harry Potter</h1>
+
+
+    <div *ngFor=" let pe of datos" [ngSwitch]="pe.gender"  [ngClass]="pe.gender === 'male' ? 'male' : 'female'">
+        <img [src]="pe.image || 'https://img.freepik.com/vector-premium/icono-perfil-avatar-predeterminado-imagen-usuario-redes-sociales-icono-avatar-gris-silueta-perfil-blanco-ilustracion-vectorial_561158-3485.jpg'" alt="{{pe.name}}" >
+        <h3>{{pe.name}}</h3>
+        <p *ngSwitchCase="'male'">Chico</p>
+        <p *ngSwitchCase="'female'">Chica</p>
+    </div>
+

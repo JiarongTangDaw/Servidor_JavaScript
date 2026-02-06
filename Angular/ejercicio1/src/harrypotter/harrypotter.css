@@ -1,0 +1,76 @@
+/* harrypotter-simple.component.css */
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2.2rem;
+  margin: 2rem 0;
+  font-family: 'Georgia', serif;
+}
+
+/* Contenedor grid */
+:host {
+  display: block;
+  padding: 1rem;
+}
+
+/* Tarjetas base */
+div {
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 280px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.male{
+    background-color: pink;
+}
+
+.female{
+    background-color: skyblue;
+}
+
+div:hover {
+  transform: scale(1.02);
+}
+
+/* Imagen */
+img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  margin-bottom: 1rem;
+}
+
+/* Textos */
+h3 {
+  margin: 0.5rem 0;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+p {
+  margin: 0.5rem 0;
+  font-weight: 500;
+  color: #444;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  div {
+    display: inline-block;
+    margin: 1rem;
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  div {
+    width: calc(33.333% - 2rem);
+  }
+}

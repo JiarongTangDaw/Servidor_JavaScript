@@ -1,0 +1,29 @@
+<div class="container">
+    <app-pokemon
+        *ngIf="datosPokemon != null"
+        [listaPokemon]="datosPokemon"
+        (retornoListaPokemon)="cargarListaPokemon($event)">
+    </app-pokemon>
+    
+    <button type="button" (click)="contarPokemon('results')">Contar Propiedad Results</button><br/>
+    <button type="button" (click)="contarPokemon('next')">Contar Propiedad next</button>
+
+    <p>Cantidad: {{ cantidadPokemon }}</p>
+
+    <div class="pokemon-grid">
+        <div *ngFor="let pokemon of listaPokemon" class="pokemon-card">
+            <h2>{{ pokemon.name }}</h2>
+            <img src="{{pokemon.img}}" alt="{{pokemon.name}}" />
+            <div class="habilidades-list">
+                <h3>Habilidades</h3>
+                <ul *ngFor="let habilidad of pokemon.habilidades">
+                    <li>
+                        <strong>Efecto:</strong> {{ habilidad.effect }}<br>
+                        <strong>Efecto corto:</strong> {{ habilidad.short_effect }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,18 @@
+<h2>{{titulo}}</h2>
+<button type="button" (click)="cambioTitulo()">Cambiar Titulo</button>
+
+<!-- ejercicio 9.2 -->
+<p>Contador: {{contador2}}</p>
+<button type="button" (click)="sumarContador()">Sumar Contador</button> 
+<button type="button" (click)="restarContador()">Restar Contador</button><br><br>
+<!-- fin ejercicio 9.2 -->
+
+<!-- ejercicio 9.3 -->
+<input type="text" [(ngModel)]="nombre" placeholder="Escribe tu nombre">
+<button type="button" (click)="saludar()">Saludar</button>
+<h1>{{saludo}}</h1><br>
+<!-- fin ejercicio 9.3 -->
+
+<!-- incrustacion de componente 1 en 2 -->
+ <app-componente1></app-componente1>
+<!-- fin incrustacion de componente 1 en 2 -->

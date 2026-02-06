@@ -1,0 +1,12 @@
+<form #miFormulario="ngForm" (ngSubmit)="enviar()">
+ <label>Nombre:</label>
+ <input [(ngModel)]="nombre" name="nombre" required><br>
+ <p *ngIf="!nombre">Campo obligatorio</p>
+ <label>Email:</label>
+ <input [(ngModel)]="email" name="email" required email><br>
+ <p *ngIf="!email">Email obligatorio y válido</p>
+ <label>Edad:</label>
+ <input type="number" [(ngModel)]="edad" name="edad" required min="18" max="99"><br>
+ <p *ngIf="!edad || edad < 18">Edad mínima: 18</p>
+ <button type="submit" [disabled]="!miFormulario.form.valid">Enviar</button>
+</form>

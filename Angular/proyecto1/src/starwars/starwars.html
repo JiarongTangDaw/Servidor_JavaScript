@@ -1,0 +1,22 @@
+<p>starwars works!</p>
+<app-lukeskywalker
+    *ngIf="datosPersonaje != null"
+    [datos]="datosPersonaje"
+    (enviarPersonajes)="cargarNaves($event)" >
+</app-lukeskywalker>
+
+<div *ngFor="let personaje of personajes">
+    <h2>{{ personaje.nombre }}</h2>
+    <h3>Películas:</h3>
+    <ul>
+        <li *ngFor="let peli of personaje.pelis">
+            <strong>{{ peli.title }}</strong>: {{ peli.opening_crawl }}
+        </li>
+    </ul>
+    <h3>Naves:</h3>
+    <ul>
+        <li *ngFor="let nave of personaje.naves">
+            <strong>{{ nave.name }}</strong> (Modelo: {{ nave.model }})
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,8 @@
+<form #formUser="ngForm" (ngSubmit)="agregarUsuario()">
+ <input [(ngModel)]="nombre" name="nombre" required placeholder="Nombre">
+ <input [(ngModel)]="email" name="email" required placeholder="Email">
+ <button type="submit" [disabled]="!formUser.form.valid">Agregar</button>
+</form>
+<ul>
+ <li *ngFor="let u of usuarios">{{ u.nombre }} - {{ u.email }}</li>
+</ul>
