@@ -1,0 +1,21 @@
+<app-lista-personajes
+(enviarPersonajes)="cargarPersonajes($event)" ></app-lista-personajes>
+
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let key of listaKey">{{ key }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let personaje of personajesTabla">
+      <td>{{ personaje.id }}</td>
+      <td (click)="detallePersonaje(personaje)">{{ personaje.nombre }}</td>
+      <td>{{ personaje.raza }}</td>
+      <td>{{ personaje.genero }}</td>
+      <td>{{ personaje.ki }}</td>
+      <td>{{ personaje.maxKi }}</td>
+      <td>{{ personaje.img }}</td>
+    </tr>
+  </tbody>
+</table>

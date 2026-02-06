@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+}
+
+header{
+
+    background-color: lightblue;
+}
+
+h1{
+    padding: 10px;
+    text-align: center;
+    background-color: lightblue;
+}
+
+nav{
+    background-color: rgb(243, 137, 118);
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+a{
+    text-decoration: none;
+}
+
+.link-cabecera{
+    color: black;
+    font-weight: normal;
+}
+
+.link-cabecera:hover{
+    color: white;
+    font-weight: bold;
+}

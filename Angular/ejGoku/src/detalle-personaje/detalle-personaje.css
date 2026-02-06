@@ -1,0 +1,194 @@
+/* Contenedor principal de la ficha */
+.ficha-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Ficha del personaje */
+.ficha {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  max-width: 800px;
+  width: 100%;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ficha:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.1);
+}
+
+/* Imagen del personaje */
+.ficha-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid rgba(255, 215, 0, 0.4);
+  margin: 0 auto 2rem;
+  display: block;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.ficha-img:hover {
+  transform: scale(1.03);
+  border-color: rgba(255, 215, 0, 0.8);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+}
+
+/* Título del personaje */
+.ficha h2 {
+  color: #FFD700;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(45deg, #FFD700, #FF8C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Información del personaje */
+.ficha p {
+  color: #E0E0E0;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  line-height: 1.8;
+}
+
+.ficha p strong {
+  color: #FFD700;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 120px;
+  margin-right: 1rem;
+}
+
+/* Descripción específica */
+.ficha p:last-of-type {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid rgba(255, 215, 0, 0.3);
+  border-bottom: none;
+}
+
+.ficha p:last-of-type strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Estilo cuando no hay personaje */
+h2:not(.ficha h2) {
+  text-align: center;
+  color: #FFD700;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin: 4rem auto;
+  padding: 2rem;
+  background: rgba(255, 215, 0, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  max-width: 600px;
+  animation: pulse 2s infinite;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.2);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 215, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ficha-container {
+    padding: 1rem;
+  }
+
+  .ficha {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .ficha-img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .ficha p strong {
+    min-width: 100px;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ficha {
+    padding: 1rem;
+  }
+
+  .ficha-img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1.5rem;
+  }
+
+  .ficha p {
+    font-size: 0.95rem;
+  }
+
+  .ficha p strong {
+    min-width: 80px;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  h2:not(.ficha h2) {
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+}
+
+/* Estilos para el ki (pueden ser útiles para mostrar niveles) */
+.ficha p:nth-child(4),
+.ficha p:nth-child(5) {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.ficha p:nth-child(4)::before,
+.ficha p:nth-child(5)::before {
+  content: "⚡";
+  position: absolute;
+  left: 0;
+  color: #FFD700;
+  font-size: 1.1rem;
+}

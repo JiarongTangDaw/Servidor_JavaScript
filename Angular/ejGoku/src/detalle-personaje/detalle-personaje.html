@@ -1,0 +1,15 @@
+<div class="ficha-container" *ngIf="personajeElegido != null; else sinPersonaje">
+  <div class="ficha">
+    <img [src]="personajeElegido.img" [alt]="personajeElegido.nombre" class="ficha-img">
+    <h2>{{ personajeElegido.nombre }}</h2>
+    <p><strong>Raza:</strong> {{ personajeElegido.raza }}</p>
+    <p><strong>Género:</strong> {{ personajeElegido.genero }}</p>
+    <p><strong>Ki:</strong> {{ personajeElegido.ki }}</p>
+    <p><strong>Max Ki:</strong> {{ personajeElegido.maxKi }}</p>
+    <p><strong>Descripción:</strong> <br> {{ personajeElegido.descripcion }}</p>
+  </div>
+</div>
+
+<ng-template #sinPersonaje>
+  <h2>No hay ningún personaje seleccionado</h2>
+</ng-template>

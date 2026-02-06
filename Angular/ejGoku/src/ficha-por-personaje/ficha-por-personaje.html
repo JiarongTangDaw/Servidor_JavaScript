@@ -1,0 +1,10 @@
+<app-lista-personajes
+  (enviarPersonajes)="cargarPersonajes($event)" >
+</app-lista-personajes>
+
+<div id="main-content" >
+  <div class="personaje" (click)="detallePersonaje(personaje)" *ngFor="let personaje of personajes" >
+    <img src="{{personaje.img}}" alt="{{personaje.nombre}}" class="img-personaje">
+    <h2>{{ personaje.nombre }}</h2>
+  </div>
+</div>
