@@ -18,16 +18,19 @@ export class TablaPersonajes {
   constructor(private router: Router) {}
   cargarPersonajes(e: any) {
     this.personajesTabla = e;
-    this.cargarKeys(this.personajesTabla[0]);
+    let k = this.cargarKeys(this.personajesTabla[0]);
+    this.listaKey = k;
   }
 
   cargarKeys(p: Personaje) {
     let k = Object.keys(p);
+    let lista: string[] = [];
     for (const key of k){
       if(key != 'descripcion'){
-        this.listaKey.push(key);
+        lista.push(key);
       }
     }
+    return lista;
   }
 
   detallePersonaje(personaje: Personaje) {

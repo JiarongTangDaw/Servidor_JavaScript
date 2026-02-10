@@ -10,7 +10,7 @@
   <tbody>
     <tr *ngFor="let personaje of personajesTabla">
       <td>{{ personaje.id }}</td>
-      <td (click)="detallePersonaje(personaje)">{{ personaje.nombre }}</td>
+      <td (click)="detallePersonaje(personaje)" class="link-personaje">{{ personaje.nombre }}</td>
       <td>{{ personaje.raza }}</td>
       <td>{{ personaje.genero }}</td>
       <td>{{ personaje.ki }}</td>

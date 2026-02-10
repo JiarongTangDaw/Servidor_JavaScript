@@ -10,6 +10,12 @@ body{
     flex-direction: column;
 }
 
+main{
+    flex: 1;
+    padding: 20px;
+    background-color: lightyellow;
+}
+
 header{
 
     background-color: lightblue;
@@ -44,4 +50,59 @@ a{
     font-weight: bold;
 }
 
+footer{
+    background-color: lightblue;
+    text-align: center;
+    padding: 10px;
+}
 
+@media screen and (max-width: 1024px) {
+    main {
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+/* Móviles grandes (576px - 768px) */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em;
+        padding: 8px;
+    }
+
+    nav {
+        padding: 8px;
+    }
+
+    main {
+        padding: 15px;
+    }
+}
+
+/* Móviles pequeños (hasta 576px) */
+@media screen and (max-width: 576px) {
+    header h1 {
+        font-size: 1.3em;
+        padding: 5px;
+    }
+
+    nav {
+        padding: 5px;
+    }
+
+    footer p {
+        font-size: 0.9em;
+        padding: 5px;
+    }
+
+    main {
+        padding: 10px;
+    }
+}
+
+/* Pantallas muy pequeñas (hasta 360px) */
+@media screen and (max-width: 360px) {
+    header h1 {
+        font-size: 1.1em;
+    }
+}

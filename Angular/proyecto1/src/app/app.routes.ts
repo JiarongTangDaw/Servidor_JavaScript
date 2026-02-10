@@ -24,6 +24,10 @@ export const routes: Routes = [
     {path: "ej2Enlaces", component: Ej2Enlaces},
     {path: 'angform', component: AngForm},
     {path:'usuform', component: UsuForm},
+    {
+      path: 'ejerStarwars',
+      loadComponent: () => import('../ejer-starwars/ejer-starwars').then(m => m.EjerStarwars)
+    },
     // ejercicio 2 de routing (relacionado con ej2-enlaces)
     {path:'**', component: Componente1}
 ];
